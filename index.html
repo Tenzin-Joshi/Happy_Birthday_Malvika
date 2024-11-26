@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Malvika!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Base Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to bottom, #add8e6, #ffffff);
+            color: #333;
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+        h1 {
+            font-family: 'Pacifico', cursive;
+            font-size: 3.5em;
+            color: #ff6347;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        h2 {
+            font-size: 2.2em;
+            margin: 20px 0;
+            color: #4682b4;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+        p {
+            font-size: 1.3em;
+            margin: 15px 0;
+            line-height: 1.8;
+        }
+        .image {
+            margin: 20px 0;
+        }
+        img {
+            max-width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            transition: 0.8s;
+        }
+
+        img:hover {
+            transform: scale(1.07);
+            transition: 0.8s;
+        }
+
+        /* Balloon Styles */
+        .balloons {
+            position: relative;
+            height: 250px;
+        }
+        .balloon {
+            position: absolute;
+            width: 80px;
+            height: 100px;
+            background: radial-gradient(circle, #f82bb7 30%, #ff4500);
+            border-radius: 50%;
+            animation: float 3s ease-in-out infinite;
+        }
+        .string {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            width: 2px;
+            height: 120px;
+            background: #333;
+            transform: translateX(-50%);
+        }
+        .balloon:nth-child(1) {
+            left: 15%;
+            animation-delay: 0s;
+        }
+        .balloon:nth-child(2) {
+            left: 50%;
+            animation-delay: 1s;
+        }
+        .balloon:nth-child(3) {
+            left: 85%;
+            animation-delay: 2s;
+        }
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-40px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        /* Confetti Styles */
+        .confetti {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: -1;
+        }
+        .confetti-piece {
+            position: absolute;
+            width: 10px;
+            height: 15px;
+            background-color: #ff4500;
+            opacity: 0.8;
+            transform-origin: left;
+            animation: fall 5s linear infinite, sway 2s ease-in-out infinite;
+            border-radius: 4px;
+        }
+        @keyframes fall {
+            0% {
+                transform: translateY(-100%);
+            }
+            100% {
+                transform: translateY(100vh);
+            }
+        }
+        @keyframes sway {
+            0%, 100% {
+                transform: rotate(0deg);
+            }
+            50% {
+                transform: rotate(15deg);
+            }
+        }
+
+        footer {
+            margin-top: 30px;
+            padding: 20px;
+            background: #4682b4;
+            color: white;
+            text-align: center;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <!-- Confetti -->
+    <div class="confetti" id="confetti"></div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1>🎉 Happy Birthday Malvika! 🎉</h1>
+        <p>Dear Malvika,</p>
+        <p>
+            Today is all about you, the most amazing friend anyone could ask for! You’re funny, kind, and always full of incredible ideas. Whether it’s your endless love for Doremon or the way you make everyone feel included, you brighten up every moment. I’m so lucky to have you as my friend, and I hope your 12th year is filled with laughter, adventures, and everything you love the most!
+        </p>
+        <h2>🎂 Celebrate Your Day! 🎂</h2>
+        <div class="image">
+            <img src="img1.jpg" alt="Happy Birthday Banner">
+        </div>
+        <p>
+            May this birthday be just the beginning of all the fun, success, and memories waiting for you. You deserve the best of everything, Malvika. Thanks for being such an awesome friend!
+        </p>
+        <div class="balloons">
+            <div class="balloon">
+                <div class="string"></div>
+            </div>
+            <div class="balloon">
+                <div class="string"></div>
+            </div>
+            <div class="balloon">
+                <div class="string"></div>
+            </div>
+        </div>
+        <h2>From your friend,</h2>
+        <h2>- Tenzin Joshi</h2>
+    </div>
+    <footer>
+        Celebrating Malvika Singh’s 12th Birthday | Designed with dedication by Tenzin Joshi
+    </footer>
+
+    <script>
+        // Create falling confetti
+        const confettiContainer = document.getElementById('confetti');
+    
+        function createConfettiPiece() {
+            const confetti = document.createElement('div');
+            confetti.className = 'confetti-piece';
+    
+            // Randomize starting position
+            confetti.style.left = Math.random() * 100 + '%';
+            confetti.style.top = -Math.random() * 20 + 'px'; // Start above the viewport
+    
+            // Randomize size and color
+            confetti.style.width = Math.random() * 8 + 5 + 'px'; // Size between 5px and 13px
+            confetti.style.height = Math.random() * 8 + 5 + 'px';
+            confetti.style.backgroundColor = ['#ff4500', '#4682b4', '#ffd700', '#32cd32'][Math.floor(Math.random() * 4)];
+    
+            // Randomize fall duration
+            const fallDuration = Math.random() * 2 + 3; // Between 3s and 5s
+    
+            // Add animation
+            confetti.style.animation = `fall ${fallDuration}s linear`;
+    
+            // Append confetti to the container
+            confettiContainer.appendChild(confetti);
+    
+            // Remove the confetti piece after it falls
+            setTimeout(() => {
+                confetti.remove();
+                createConfettiPiece(); // Immediately create a new piece to maintain the loop
+            }, fallDuration * 1000);
+        }
+    
+        // Generate multiple confetti pieces
+        function generateConfetti() {
+            for (let i = 0; i < 150; i++) {
+                createConfettiPiece();
+            }
+        }
+    
+        // Add CSS animations
+        const confettiStyle = document.createElement('style');
+        confettiStyle.innerHTML = `
+            @keyframes fall {
+                0% {
+                    transform: translateY(-100%);
+                }
+                100% {
+                    transform: translateY(100vh);
+                }
+            }
+        `;
+        document.head.appendChild(confettiStyle);
+    
+        // Trigger confetti generation on page load
+        window.onload = generateConfetti;
+    </script>
+    
+</body>
+</html>
